@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission To Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        .strokeme {
+        color: white;
+        text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron text-center strokeme" style="background-image: url(https://www.cgi.com/sites/default/files/styles/hero_banner/public/space_astronaut.jpg?itok=k2oFRHrr); background-size: cover;" align="right">
+            <h1 style="color:#ADD8E6">Mission To Mars</h1>
+            <p><a class="btn btn-info btn-lg" href="/scrape"
+                        role="button">Scrape New Data</a></p>
+        </div>
+        <!-- Add section for Mars News -->
+        <div class="row" id="mars-news">
+            <div class="col-md-12">
+                <div class="media">
+                    <div class="media-body">
+                        <h2>Latest Mars News</h2>
+                        <h4 class="media-heading">{{mars.news_title}}</h4>
+                        <p>{{mars.news_paragraph}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Featured Image -->
+        <div class="row" id="mars-featured-image">
+            <div class="col-md-8">
+                <h2>Featured Mars Image</h2>
+                <img src="{{mars.featured_image}}"
+                     class="img-responsive"
+                     alt="Responsive image"
+                />
+
+            </div>
+            <!-- Mars Facts -->
+            <div class="col-md-4">
+                <div class="row" id="mars-facts">
+                    <h4>Mars Facts</h4>
+                    {{ mars.facts | safe }}
+                </div>
+
+            </div>
+        </div>
+        <!-- Section for Mars Hemispheres -->
+        <div class="row" id="mars-hemispheres">
+
+            <div class="page-header">
+                <h2 class="text-center">Mars Hemispheres</h2>
+            </div>
+
+            {% for hemisphere in mars.hemispheres %}
+            <div class="col-xs-12 col-md-6">
+                <div class="thumbnail">
+                    <img src="{{hemisphere.imgUrl}}">
+                    <div class="caption bg-info">
+                        <h3>{{hemisphere.title}}</h3>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</body>
+</html>
+
+</div>
+
+</body>
+</html>
